@@ -1,0 +1,13 @@
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/controller/SysGeneratorController.java
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/utils/GenUtils.java
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/utils/DateUtils.java
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/utils/PageUtils.java
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/dao/SysGeneratorDao.java
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/service/SysGeneratorService.java
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/utils/RRExceptionHandler.java
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/utils/RRException.java
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/entity/TableEntity.java
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/utils/R.java
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/entity/ColumnEntity.java
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/utils/Query.java
+/Users/apple/Documents/code/angel_explorer/angle-gateway/angel-generator/src/main/java/com/angel/generator/GeneratorApplication.java

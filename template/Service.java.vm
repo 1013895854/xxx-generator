@@ -1,0 +1,50 @@
+package ${package}.${moduleName}.service;
+
+import com.baomidou.mybatisplus.service.IService;
+import ${mainPath}.common.utils.PageUtils;
+import ${package}.${moduleName}.entity.${className};
+
+import java.util.Map;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+public interface ${className}Service {
+
+    PageUtils queryPage(Map<String, Object> params);
+    
+	
+	 /**
+     * 查询所有
+     */
+   
+    public List<${className}> selectAll(${className} ${classname})
+	
+    /**
+     * 信息
+     */
+   
+    public ${className} selectById(${pk.attrType} ${pk.attrname})
+
+    /**
+     * 保存
+     */
+    
+    public Integer save${className}(${className} ${classname})
+
+    /**
+     * 修改
+     */
+    public Integer update${className}(${className} ${classname})
+
+    /**
+     * 删除
+     */
+    public Integer deleteById(${pk.attrType} ${pk.attrname})
+    
+}
+

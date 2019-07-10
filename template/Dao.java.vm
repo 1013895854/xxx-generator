@@ -1,0 +1,49 @@
+package ${package}.${moduleName}.dao;
+
+import ${package}.${moduleName}.entity.${className};
+import java.util.List;
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+public interface ${className}Dao{
+	
+	 /**
+     * 查询所有
+     */
+   
+    public List<${className}> selectAll(${className} ${classname})
+	
+	
+	 /**
+     * 信息byID
+     */
+   
+    public ${className} select${className}ById(${pk.attrType} ${pk.attrname})
+
+    /**
+     * 保存
+     */
+    
+    public Integer save${className}(${className} ${classname})
+
+    /**
+     * 修改
+     */
+    public Integer update${className}(${className} ${classname})
+
+    /**
+     * 删除
+     */
+    public Integer deleteById(${pk.attrType} ${pk.attrname})
+    }
+    
+	
+	
+	
+	
+}

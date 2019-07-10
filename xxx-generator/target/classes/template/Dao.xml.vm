@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="${className}">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="${package}.model.entity.${moduleName}.${className}" id="${classname}Map">
+#foreach($column in $columns)
+        <result property="${column.attrname}" column="${column.columnName}"/>
+#end
+    </resultMap>
+    
+    <sql id="select${className}Vo">
+        select#foreach($column in $columns) $column.columnName#if($velocityCount != $columns.size()),#end#end from ${tableName}
+    </sql>
+	
+	 <insert id="save${className}" parameterType="${className}" useGeneratedKeys="true" keyProperty="id">
+        insert into ${tableName}(
+#foreach($column in $columns)
+#if($column.columnName != $primaryKey.columnName || $primaryKey.extra != 'auto_increment')
+			<if test="$column.attrname != null #if($column.attrType == 'String' ) and $column.attrname != '' #end ">$column.columnName,</if>
+#end
+#end
+        )values(
+#foreach($column in $columns)
+#if($column.columnName != $primaryKey.columnName || $primaryKey.extra != 'auto_increment')
+			<if test="$column.attrname != null #if($column.attrType == 'String' ) and $column.attrname != '' #end ">#{$column.attrname},</if>
+#end			
+#end
+        )
+	    <selectKey resultType="Integer" keyProperty="id" order="AFTER">
+			<![CDATA[ SELECT LAST_INSERT_ID()  AS id  ]]>
+		</selectKey>    
+    </insert>
+    
+    <update id="update${className}" parameterType="${className}">
+        update ${tableName}
+        <set>
+#foreach($column in $columns)
+#if($column.columnName != $primaryKey.columnName)
+            <if test="$column.attrname != null #if($column.attrType == 'String' ) and $column.attrname != '' #end ">$column.columnName = #{$column.attrname},</if>
+#end
+#end
+        </set>
+        where ${pk.columnName} = #{${pk.attrname}}
+    </update>
+    
+	<select id="selectAll${className}" parameterType="java.util.Map" resultMap="${classname}Map">
+        <include refid="select${className}Vo"/>
+        <where>
+#foreach($column in $columns)
+#if($column.columnName != $primaryKey.columnName)
+            <if test="$column.attrname != null #if($column.attrType == 'String' ) and $column.attrname != '' #end ">AND $column.columnName = #{$column.attrname}</if>
+#end
+#end
+        </where>
+        <if test="startNo !=null">
+        	LIMIT #{startNo},#{pageSize}
+        </if>
+    </select>
+    
+    <select id="select${className}ById" parameterType="java.lang.Integer" resultMap="${classname}Map">
+        <include refid="select${className}Vo"/>
+        where ${pk.columnName} = #{${pk.attrname}}
+    </select>
+    
+    <delete id="delete${className}ById" parameterType="java.lang.Integer">
+        delete from ${tableName} where ${pk.columnName} = #{${pk.attrname}}
+    </delete>    
+
+</mapper>

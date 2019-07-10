@@ -1,0 +1,57 @@
+package ${package}.repository.${moduleName};
+
+import com.globle.framework.annotation.MyBatisRepository;
+import com.globle.framework.mybatis.support.BaseMybatisRepository;
+import ${package}.model.entity.${moduleName}.${className};
+import java.util.List;
+import java.util.Map;
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@MyBatisRepository
+public class ${className}Repository extends BaseMybatisRepository<${className}, Long>{
+	
+	
+	/**
+	 * 保存相关信息
+	 */
+	public Integer save${className}(${className} ${classname}) {
+		return getSqlSession().insert(getSQL("save${className}"), ${classname});
+	}
+	
+	/**
+	 * 查询所有信息列表
+	 */
+	public List<${className}> selectAll${className}(Map<String,Object> map) {
+		return getSqlSession().selectList(getSQL("selectAll${className}"),map);
+	}
+	
+	/**
+	 * 根据id查询信息
+	 */
+	public ${className} select${className}ById(${pk.attrType} ${pk.attrname}) {
+		return getSqlSession().selectOne(getSQL("select${className}ById"),${pk.attrname});
+	}
+	
+	/**
+	 * 更新相关信息
+	 */
+	public Integer update${className}(${className} ${classname}) {
+		return getSqlSession().update(getSQL("update${className}"),${classname});
+	}
+	
+	/**
+	 * 删除信息
+	 *
+	 */
+	public Integer delete${className}ById(${pk.attrType} ${pk.attrname}) {
+		return getSqlSession().delete(getSQL("delete${className}ById"), ${pk.attrname});
+	}
+		
+	
+}

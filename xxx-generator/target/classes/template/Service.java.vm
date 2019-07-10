@@ -1,0 +1,76 @@
+package ${package}.${moduleName}.service;
+
+import ${package}.repository.${moduleName}.${className}Repository;
+import ${package}.model.entity.${moduleName}.${className};
+
+import java.util.Map;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@Component
+@Transactional(rollbackFor=Exception.class)
+public class ${className}Service {
+	
+	@Autowired
+	private ${className}Repository ${classname}Repository;
+	
+   /**
+	 * 保存相关信息
+	 */
+	public boolean save${className}(${className} ${classname}) {
+		Integer result = ${classname}Repository.save${className}(${classname});
+		if(result!=1){
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * 查询所有信息列表
+	 */
+	public List<${className}> selectAll${className}(Map<String,Object> map) {
+		return ${classname}Repository.selectAll${className}(map);
+	}
+	
+	/**
+	 * 根据id查询信息
+	 */
+	public ${className} select${className}ById(${pk.attrType} ${pk.attrname}) {
+		return ${classname}Repository.select${className}ById(${pk.attrname});
+	}
+	
+	/**
+	 * 更新相关信息
+	 */
+	public boolean update${className}(${className} ${classname}) {
+		Integer result = ${classname}Repository.update${className}(${classname});
+		if(result!=1){
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * 删除信息
+	 *
+	 */
+	public boolean delete${className}ById(${pk.attrType} ${pk.attrname}) {
+		Integer result = ${classname}Repository.delete${className}ById(${pk.attrname});
+		if(result!=1){
+			return false;
+		}
+		return true;
+	}
+    
+}
+
